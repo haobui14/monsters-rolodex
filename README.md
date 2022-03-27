@@ -2,7 +2,7 @@
 
 First, run npm install to build package in package.json file and compose node_modules folder
 
-###`npm install`
+### `npm install`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
