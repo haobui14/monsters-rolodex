@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+#Monster Rolodex Project - FROM ZTM Academy
+
+First, run npm install to build package in package.json file and compose node_modules folder
+
+### `npm install`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
