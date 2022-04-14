@@ -1,4 +1,4 @@
-#Monster Rolodex Project - FROM ZTM Academy
+# Monster Rolodex Project - FROM ZTM Academy
 
 First, run npm install to build package in package.json file and compose node_modules folder
 
