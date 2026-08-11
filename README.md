@@ -1,74 +1,64 @@
 # Monster Rolodex Project
 
-First, run npm install to build package in package.json file and compose node_modules folder
+A searchable rolodex of monsters, built with **React 19**, **TypeScript**, and **Vite**.
 
-### `npm install`
+## Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Install dependencies:
+
+```sh
+npm install
+```
+
+Then start the dev server:
+
+```sh
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The
+page hot-reloads as you edit.
 
 ## Available Scripts
 
-In the project directory, you can run:
+| Script | What it does |
+| --- | --- |
+| `npm start` / `npm run dev` | Runs the app in development mode on port 3000. |
+| `npm run build` | Type-checks with `tsc`, then builds to the `build/` folder. |
+| `npm run preview` | Serves the built `build/` folder locally to sanity-check a production build. |
+| `npm test` | Runs the test suite once (Vitest + React Testing Library). |
+| `npm run test:watch` | Runs the tests in interactive watch mode. |
+| `npm run lint` | Lints the project with ESLint. |
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [React 19](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) for dev server and bundling
+- [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/react)
+  for tests
+- [ESLint](https://eslint.org/) (flat config, `eslint.config.js`)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```
+index.html                 # Vite entry point
+vite.config.ts             # Vite + Vitest config
+eslint.config.js           # ESLint flat config
+public/                    # Static assets served at the site root
+src/
+  main.tsx                 # App bootstrap (ReactDOM.createRoot)
+  App.tsx                  # Root component, fetches + filters monsters
+  App.test.tsx             # Tests for the root component
+  components/              # Card, CardList, SearchBox
+  utils/data.utils.ts      # Typed fetch helper
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Monster data comes from [JSONPlaceholder](https://jsonplaceholder.typicode.com/users)
+and avatars from [Robohash](https://robohash.org/).
 
-### `npm run build`
+## Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was originally bootstrapped with Create React App. CRA was deprecated in
+February 2025 and its dependency tree carried unfixable advisories, so the build
+tooling was migrated to Vite. The `build/` output directory was kept (instead of
+Vite's default `dist/`) so existing deployment setups continue to work.

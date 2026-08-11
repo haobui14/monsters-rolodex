@@ -15,7 +15,6 @@ export type Monster = {
 const App = () => {
   const [searchField, setSearchField] = useState('');
   const [monsters, setMonsters] = useState<Monster[]>([]);
-  const [filteredMonsters, setFilterMonsters] = useState(monsters);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -28,12 +27,11 @@ const App = () => {
     fetchUsers();
   }, []);
 
-  useEffect(() => {
-    const newFilteredMonsters = monsters.filter((monster) => {
-      return monster.name.toLocaleLowerCase().includes(searchField);
-    });
-    setFilterMonsters(newFilteredMonsters);
-  }, [monsters, searchField]);
+  // Derived state: computed during render rather than synced via an effect,
+  // which would cost an extra render pass on every keystroke.
+  const filteredMonsters = monsters.filter((monster) => {
+    return monster.name.toLocaleLowerCase().includes(searchField);
+  });
 
   const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
